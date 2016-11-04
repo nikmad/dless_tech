@@ -1,1 +1,0 @@
-/usr/bin/c++       CMakeFiles/OpenCLConvolutionChap3.dir/Convolution.cpp.o  -o OpenCLConvolutionChap3 -rdynamic -lOpenCL 
