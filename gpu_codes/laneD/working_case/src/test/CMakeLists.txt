@@ -1,0 +1,2 @@
+#ADD_SUBDIRECTORY(1p1_lane_detection_testing)
+ADD_SUBDIRECTORY(1p2_lane_detection_testing)

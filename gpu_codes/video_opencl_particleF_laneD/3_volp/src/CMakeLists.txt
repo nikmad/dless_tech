@@ -1,0 +1,2 @@
+ADD_SUBDIRECTORY(mwc64xRNG_fpga_kernels)
+#ADD_SUBDIRECTORY(noRNG_fpga_kernels)

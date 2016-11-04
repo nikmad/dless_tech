@@ -1,0 +1,60 @@
+/*(C) 2013, Nikhil Madduri, <nikhil.madduri@stud-mail.uni-wuerzburg.de>*/
+
+typedef struct{
+float x[298];
+float y[79];
+//float x[575];
+//float y[96];
+float dist;
+float theta; 
+}linestruct;
+
+typedef struct{
+   float GOOD_LINE_DIST;
+   int NUM_GOOD_LINES;
+   int NUM_LINES;
+   int count;
+   int imgrows;
+   int imgcols;
+   float dist_val_thisLine;
+}goodParams;
+
+__kernel void extractGoodLineKernel(__global linestruct *line,
+                                    __global float *dist_vect,  
+                                    __global int *good_line_idx,
+                                    __global goodParams *params,  
+                                    __global int *count_out,
+                                    __global int *good_line_idx_out)
+{
+   int ln = get_global_id(0);
+   int fastcount = 0;
+   
+	if(dist_vect[ln] == params->dist_val_thisLine && params->count < params->NUM_GOOD_LINES)
+	{
+		if(params->count == 0){
+   			good_line_idx[params->count] = ln;
+   			good_line_idx_out[params->count] = good_line_idx[params->count];
+            params->count++;
+		}
+		else 
+			if (params->count > 0)
+			{
+				for(int kl=0; kl<params->count; kl++){
+				if( fabs( line[ln].x[params->imgrows-1] - line[good_line_idx[kl]].x[params->imgrows-1] ) > ((float)params->GOOD_LINE_DIST/100.0f)*params->imgcols)
+					{
+					   if( kl<params->count ) 
+                     fastcount++;
+                  if(fastcount==params->count)
+                  {	good_line_idx[params->count] = ln;
+   			         good_line_idx_out[params->count] = good_line_idx[params->count];
+					   	params->count++;
+                  }
+					}
+				}
+			}
+	} 
+
+   count_out = &params->count;
+} 
+
+
