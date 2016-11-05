@@ -67,10 +67,11 @@ int main( int argc, char** argv )
  
    //string input_video_file = "../../../../1_dependencies/video/oli_lanes/edited/output3"; 
    //string input_video_file = "../../../../1_dependencies/video/cordova1"; 
-   string input_video_file = "../../../../1_dependencies/video/washington1"; 
+   //string input_video_file = "../../../../1_dependencies/video/washington1"; 
    //string input_video_file = "../../../../1_dependencies/video/oli_4"; 
    //string input_video_file = "../../../../1_dependencies/video/clip_oli"; 
    //string input_video_file = "../../../../1_dependencies/video/clip4"; 
+   string input_video_file = "/home/nikhil/nik_workspace/git_space/dless_tech/opencl_gpu_codes/1_dependencies/video/washington1";
    
    cv::VideoCapture capture(input_video_file);
    cv::Mat img_org_full;
