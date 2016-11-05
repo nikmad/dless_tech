@@ -107,7 +107,8 @@ int main( int argc, char** argv )
 	int BEST_LINE_DIST = atoi(argv[1]);
 	int NUM_BEST_LINES = atoi(argv[2]);
   
-   string input_video_file = "/home/madduri/git/nikmad/thesis_codes/video/clip5"; 
+   string input_video_file = "/home/nikhil/nik_workspace/git_space/dless_tech/opencl_gpu_codes/1_dependencies/video/clip5";
+   //string input_video_file = "/home/madduri/git/nikmad/thesis_codes/video/clip5"; 
    //string input_video_file = "/home/nikhil/git/nikmad/opencv_codes/video/clip1"; 
    cv::VideoCapture capture(input_video_file);
    cv::Mat img_org_full;
