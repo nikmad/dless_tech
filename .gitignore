@@ -1,15 +1,8 @@
 *.[oa]
 *.~
-*.exe
-*.swp
-*.marks
-Makefile
 *.cpp~
 *.mp4
 *.avi
-cl_book_original/
-.svn/
-.metadata/
 1_dependencies/
 build/
 img/
